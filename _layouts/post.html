@@ -18,3 +18,7 @@ layout: default
 
   {% include disqus.html %}
 </article>
+
+{% if content ~= /<sgf>/ %}
+    <script src="{{ site.baseurl }}/assets/sgf.js"></script>
+{% endif %}
