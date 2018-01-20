@@ -246,10 +246,12 @@ nav {
   border-bottom: 1px solid $lightGray;
 }
 
+/*
 .posts > .post:last-child {
   padding-bottom: 1em;
   border-bottom: none;
 }
+*/
 
 .post {
   blockquote {
@@ -281,6 +283,12 @@ nav {
 footer {
   padding: 20px 0;
   text-align: center;
+}
+
+.pagination {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-around;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
