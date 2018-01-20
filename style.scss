@@ -287,11 +287,20 @@ footer {
 
 .pagination {
     margin-top: 25px;
-    display: flex;
-    justify-content: space-around;
+    width: 100%;
+    text-align: center;
+    position: relative;
 }
 
-// Settled on moving the import of syntax highlighting to the bottom of the CSS
-// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
+.previous {
+    position: absolute;
+    left: 0px;
+}
+
+.next {
+    position: absolute;
+    right: 0px;
+}
+
 @import "highlights";
 @import "svg-icons";
