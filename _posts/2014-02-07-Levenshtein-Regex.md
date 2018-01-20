@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Levenshtein Regex
+tags: Code Python Regex
 ---
 
 In my day job, I sometimes come across little programming puzzles that are sort of related to, but have no real use in my current project.  They usually result in little snippets of code or random techniques that I'll file away in the "curios" section of my brain.
