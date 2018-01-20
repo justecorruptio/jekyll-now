@@ -9,12 +9,16 @@ layout: default
     {{ content }}
   </div>
 
-  <div class="date">
+<div class="date">
     Written on {{ page.date | date: "%b %e, %Y" }}
-    {%if page.tags != '' %} about
-        {{ page.tags | join:', ' }}
+    {%if page.tags.size > 0 %} about
+        {% for tag in page.tags %}
+            {% if forloop.last %} and {% endif %}
+            <a href="/tag#{{ tag | slug | downcase }}">
+                {{ tag }}</a>{% if forloop.last != true %}, {% endif %}
+        {% endfor %}
     {% endif %}
-  </div>
+</div>
 
   {% include disqus.html %}
 </article>

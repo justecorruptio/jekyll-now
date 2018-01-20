@@ -10,7 +10,11 @@ layout: default
         <div class="date">
             Written on {{ post.date | date: "%b %e, %Y" }}
             {%if post.tags.size > 0 %} about
-                {{ post.tags | join:', ' }}
+                {% for tag in post.tags %}
+                    {% if forloop.last %} and {% endif %}
+                    <a href="/tag#{{ tag | slug | downcase }}">
+                        {{ tag }}</a>{% if forloop.last != true %}, {% endif %}
+                {% endfor %}
             {% endif %}
         </div>
 
