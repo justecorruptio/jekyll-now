@@ -19,7 +19,7 @@ From this short example of 20 letters, we can already see that the first 5 lette
 
 Another approach could be to evenly interleave the two, ie. `cAccAccAccAccAccAccA`, but being too predictable is also not good for gameplay.
 
-A third naive approach of statistically pulling a vowel or a consonant also exhibits this the long runs problem:
+A third naive approach of statistically pulling vowels or consonants also exhibits this problem long runs of characters:
 
 ```python
 consonants = list('cccccccccccc')
@@ -38,7 +38,7 @@ print ''.join(output)
 
 ---
 
-So, this is the solution I've come up with, which I'm calling an "Uneven Merge Shuffle." The basic premise is to subdivide the list of consonants and vowels near *(but not at!)* the middle, and recursively merge the pieces. The base case is if one list is empty, then the other list is returned. Here's an example of shuffling two short lists:
+So, this is the solution I've come up with, which I'm calling an "Uneven Merge Shuffle." The basic premise is to subdivide the list of consonants and vowels near *(but not at!)* the middle, and recursively merge the pieces. The base case is: if one list is empty, then the other list is returned. Here's an example of shuffling two short lists:
 
 ```
 Inductive Case: Split each list near the middle.
@@ -88,7 +88,9 @@ print ''.join(output)
 # produces: AcAccAcAccAcccAcAcAc
 ```
 
-I'll leave the analysis as an exercise for the reader, but the time complexity of this function is `O(N)` and the space complexity is also `O(N)` with a large constant factor because every slice operation has to make a copy of that piece of the list. Realizing that the entire operation is depth-first, we can build the resulting list incrementally instead:
+The `random_pivot()` function chooses a splitting point in the list roughly between 45% and 55% of the length.
+
+I'll leave the analysis as an exercise for the reader, but the time complexity of this function is `O(N)`; The space complexity is also `O(N)` with a large constant factor because every slice operation has to make a copy of that piece of the list. Realizing that the entire operation is depth-first, we can build the resulting list incrementally instead:
 
 ```python
 def uneven_merge_shuffle(a, b):
