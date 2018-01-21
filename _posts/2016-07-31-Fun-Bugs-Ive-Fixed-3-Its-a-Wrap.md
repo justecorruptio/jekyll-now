@@ -8,7 +8,7 @@ There was once an old system that did things. It did those things well for five 
 
 You see this system was in charge of doing a whole lot of things, so it forked 10 copies of itself, so that each copy could take care of a smaller portion. The system kept track of each forked child by tracking its PID. If it detected that a child was misbehaving, it forked new one, made sure that the old one was dead so that nothing was accidentally done twice, and everyone would carry along merrily.
 
-There was also an ingenious way the system divided the labor. It assigned each of the children a number. Child #0 would do the things that ended in a 0, child #1 would take care of all the 1's, and so-forth.
+There was also an ingenious way the system divided the labor. It assigned each of the children a number. Child #0 would do the tasks that ended in a 0, child #1 would take care of all the 1's, and so-forth.
 
 So on one fateful day, thing number 73, and 83, and 93 didn't get processed, we knew exactly that one one of the children was misbehaving. When we looked at the running processes, and child #3 didn't exist! How can that be? The forking logic was so simple.
 
