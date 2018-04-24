@@ -4,7 +4,7 @@ title: Uneven Merge Shuffle
 tags: Code Python Algorithm Snatch
 ---
 
-This is will probably be the first installment in a series of posts about an online multiplayer word game I'm developing as a side project: [Snatch!](snatch.cc). The process has brought up a lot of interesting topics, and I would like to share some of them.
+This is will probably be the first installment in a series of posts about an online multiplayer word game I'm developing as a side project: [Snatch!](http://snatch.cc). The process has brought up a lot of interesting topics, and I would like to share some of them.
 
 The central mechanic of the game is that letter tiles are periodically pulled from a bag and players must make words out of them. During testing, we quickly realized that long runs of vowels or consonants make for poor gameplay. We needed the tiles to be random, but not *too* random. Internally, Python uses a [Fisher-Yates Shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) which guarantees a perfect shuffle, has a chance to clump vowels and consonants together. In this short example, we have a bag containing only the consonant `c` and vowel `A`:
 
