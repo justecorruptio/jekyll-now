@@ -1,0 +1,13 @@
+<div class="date">
+    Written on {{ page.date | date: "%b %e, %Y" }}
+    {%if page.tags.size > 0 %}
+        about
+        {% for tag in page.tags %}
+            {% if page.tags.size != 1 %}
+                {% if forloop.last %} and {% endif %}
+            {% endif %}
+            <a href="/tag#{{ tag | slug | downcase }}">
+                {{ tag }}</a>{% if forloop.rindex > 2 %},
+                {% endif %}{% endfor %}.
+    {% endif %}
+</div>

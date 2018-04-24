@@ -3,27 +3,17 @@ layout: default
 ---
 
 <div class="posts">
-  {% for post in paginator.posts %}
+  {% for page in paginator.posts %}
     <article class="post">
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-        <div class="date">
-            Written on {{ post.date | date: "%b %e, %Y" }}
-            {%if post.tags.size > 0 %} about
-                {% for tag in post.tags %}
-                    {% if forloop.last %} and {% endif %}
-                    <a href="/tag#{{ tag | slug | downcase }}">
-                        {{ tag }}</a>{% if forloop.last != true %}, {% endif %}
-                {% endfor %}
-            {% endif %}
-        </div>
-
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ page.title }}</a></h1>
+        {% include tag.html page=page %}
 
       <div class="entry">
-        {{ post.excerpt }} ...
+        {{ page.excerpt }} ...
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Continue Reading</a>
+      <a href="{{ site.baseurl }}{{ page.url }}" class="read-more">Continue Reading</a>
     </article>
   {% endfor %}
 </div>
